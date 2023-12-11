@@ -4,17 +4,17 @@
   console.log("pageList", pageList)
 </script>
 
-<footer>
-  <div>AMNESIA SCANNER</div>
+<header>
+  <h1>AMNESIA SCANNER</h1>
   <div class="menu">
     {#each pageList as page}
       <a href={"/page/" + page.slug.current}>{page.title}</a>
     {/each}
   </div>
-</footer>
+</header>
 
 <style lang="scss">
-  footer {
+  header {
     text-align: center;
 
     .menu {

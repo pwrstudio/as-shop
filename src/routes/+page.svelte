@@ -1,6 +1,14 @@
-<script type="ts">
+<script lang="ts">
   import { onMount } from "svelte"
+  import type { ProductType } from "$lib/types"
   import Client from "shopify-buy"
+  import Hero from "$lib/components/Hero.svelte"
+  import Product from "$lib/components/Product.svelte"
+
+  export let data: any
+  const { productList }: { productList: ProductType[] } = data
+
+  console.log("productList", productList)
 
   onMount(() => {
     var client = Client.buildClient({
@@ -242,4 +250,8 @@
   })
 </script>
 
-LANDING
+<Hero />
+
+{#each productList as product}
+  <Product {product} />
+{/each}
