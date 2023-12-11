@@ -44,6 +44,7 @@
 
   .shopify-buy__btn {
     font-size: var(--font-size);
+    padding: 20px;
   }
 
   .shopify-buy__option-select__select {
