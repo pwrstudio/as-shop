@@ -25,6 +25,7 @@
 
     .slide {
       display: none;
+      width: 100%;
 
       &.active {
         display: flex;
@@ -34,6 +35,11 @@
         height: 400px;
         width: auto;
         margin-bottom: 20px;
+
+        @media screen and (max-width: 600px) {
+          height: auto;
+          width: 100%;
+        }
       }
     }
   }

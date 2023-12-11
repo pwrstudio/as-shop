@@ -124,8 +124,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -60%);
-    background: black;
-    color: white;
+    background: var(--foreground);
+    color: var(--background);
     padding: 20px;
     font-size: 2em;
   }

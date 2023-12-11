@@ -5,22 +5,14 @@
 </script>
 
 <footer>
-  <div>AMNESIA SCANNER</div>
-  <div class="menu">
-    {#each pageList as page}
-      <a href={"/page/" + page.slug.current}>{page.title}</a>
-    {/each}
-  </div>
+  <div>© 2023</div>
 </footer>
 
 <style lang="scss">
   footer {
     text-align: center;
-
-    .menu {
-      a {
-        margin-right: 10px;
-      }
-    }
+    border-top: 1px solid grey;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
 </style>

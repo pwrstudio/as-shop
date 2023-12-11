@@ -9,10 +9,10 @@
   console.log("pageList", pageList)
 </script>
 
-<!-- <Header {pageList} /> -->
+<Header {pageList} />
 
 <main>
   <slot />
 </main>
 
-<!-- <Footer {pageList} /> -->
+<Footer {pageList} />

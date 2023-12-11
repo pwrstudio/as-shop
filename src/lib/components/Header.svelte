@@ -1,35 +1,37 @@
 <script lang="ts">
   import type { PageType } from "$lib/types"
   export let pageList: PageType[]
-  console.log("pageList", pageList)
+
+  let inverted = false
+
+  const switchColor = () => {
+    const root = document.documentElement
+    if (inverted) {
+      root.style.setProperty("--foreground", "var(--black)")
+      root.style.setProperty("--background", "var(--white)")
+      inverted = false
+    } else {
+      root.style.setProperty("--foreground", "var(--white)")
+      root.style.setProperty("--background", "var(--black)")
+      inverted = true
+    }
+  }
 </script>
 
 <header>
-  <h1>AMNESIA SCANNER</h1>
-  <!-- <div class="menu">
-    {#each pageList as page}
-      <a href={"/page/" + page.slug.current}>{page.title}</a>
-    {/each}
-  </div> -->
+  <button on:click={switchColor}>AS SHOP</button>
 </header>
 
 <style lang="scss">
   header {
     text-align: center;
-    border-bottom: 1px solid black;
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-bottom: 1px solid grey;
 
-    h1 {
-      font-size: 10rem;
-    }
-
-    .menu {
-      a {
-        margin-right: 10px;
-      }
+    button {
+      font-size: var(--font-size);
+      padding: 20px;
     }
   }
 </style>
