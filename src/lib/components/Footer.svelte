@@ -1,9 +1,3 @@
-<script lang="ts">
-  import type { PageType } from "$lib/types"
-  export let pageList: PageType[]
-  console.log("pageList", pageList)
-</script>
-
 <footer>
   <div>© 2023</div>
 </footer>

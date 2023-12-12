@@ -37,6 +37,16 @@
     overscroll-behavior-y: none;
   }
 
+  .strobe {
+    animation: blinkingBackground 0.1s infinite;
+  }
+
+  @keyframes blinkingBackground {
+    50% {
+      background-color: var(--white);
+    }
+  }
+
   .shopify-buy__product__actual-price {
     font-size: var(--font-size);
   }

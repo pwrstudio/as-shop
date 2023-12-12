@@ -5,14 +5,12 @@
 
   export let data: any
   const { pageList }: { pageList: PageType[] } = data
-
-  console.log("pageList", pageList)
 </script>
 
-<Header {pageList} />
+<Header />
 
 <main>
   <slot />
 </main>
 
-<Footer {pageList} />
+<Footer />

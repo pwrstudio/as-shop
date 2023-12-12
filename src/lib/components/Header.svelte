@@ -1,19 +1,28 @@
 <script lang="ts">
-  import type { PageType } from "$lib/types"
-  export let pageList: PageType[]
+  enum State {
+    Normal,
+    Invert,
+    Strobe,
+  }
 
-  let inverted = false
+  let state = State.Normal
 
+  // Normal => Invert => Strobe => Normal => ...
   const switchColor = () => {
     const root = document.documentElement
-    if (inverted) {
-      root.style.setProperty("--foreground", "var(--black)")
-      root.style.setProperty("--background", "var(--white)")
-      inverted = false
-    } else {
+    const body = document.body
+    body.classList.remove("strobe")
+    if (state === State.Normal) {
       root.style.setProperty("--foreground", "var(--white)")
       root.style.setProperty("--background", "var(--black)")
-      inverted = true
+      state = State.Invert
+    } else if (state === State.Invert) {
+      body.classList.add("strobe")
+      state = State.Strobe
+    } else if (state === State.Strobe) {
+      root.style.setProperty("--foreground", "var(--black)")
+      root.style.setProperty("--background", "var(--white)")
+      state = State.Normal
     }
   }
 </script>
