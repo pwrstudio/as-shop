@@ -2,7 +2,7 @@
   import { onMount } from "svelte"
   import type { ProductType } from "$lib/types"
   // import Client from "shopify-buy"
-  import { urlFor } from "$lib/modules/sanity"
+  import { renderBlockText, urlFor } from "$lib/modules/sanity"
   import Slideshow from "./Slideshow.svelte"
 
   export let product: ProductType
@@ -67,9 +67,15 @@
       alt={product.title}
     />
   {/if}
-  <div bind:this={embedEl} />
 
-  {#if !product.inStock}
+  {#if product.inStock}
+    <h1>{product.title}</h1>
+    <div class="description">
+      {@html renderBlockText(product.content?.content ?? [])}
+    </div>
+
+    <div bind:this={embedEl} />
+  {:else}
     <div class="sold-out">Sold Out</div>
   {/if}
 </div>
@@ -87,6 +93,11 @@
     display: none;
   }
 
+  :global(.description p) {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
   .product {
     width: 100%;
     // height: 100vh;
@@ -98,6 +109,15 @@
     position: relative;
     padding-bottom: 100px;
     border-bottom: 1px solid grey;
+
+    h1 {
+      font-size: var(--font-size);
+      margin: 0;
+    }
+
+    .description {
+      max-width: 60ch;
+    }
 
     img {
       height: 400px;
